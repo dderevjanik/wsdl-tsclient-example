@@ -1,0 +1,470 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://24sevenOffice.com/webservices" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s1="http://microsoft.com/wsdl/types/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://24sevenOffice.com/webservices" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://24sevenOffice.com/webservices">
+      <s:import namespace="http://microsoft.com/wsdl/types/" />
+      <s:element name="SaveBundleList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="bundlelist" type="tns:BundleList" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="BundleList">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Bundles" type="tns:ArrayOfBundle" />
+          <s:element minOccurs="0" maxOccurs="1" default="false" name="AllowDifference" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" default="false" name="DirectLedger" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" default="1" name="SaveOption" type="s:unsignedByte" />
+          <s:element minOccurs="0" maxOccurs="1" default="0" name="DefaultCustomerId" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfBundle">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Bundle" nillable="true" type="tns:Bundle" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Bundle">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" default="0" name="YearId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Vouchers" type="tns:ArrayOfVoucher" />
+          <s:element minOccurs="0" maxOccurs="1" default="0" name="Sort" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" default="" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" default="false" name="BundleDirectAccounting" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfVoucher">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Voucher" nillable="true" type="tns:Voucher" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Voucher">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="TransactionNo" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Entries" type="tns:ArrayOfEntry" />
+          <s:element minOccurs="1" maxOccurs="1" name="Sort" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DifferenceOptions" type="tns:DifferenceOptions" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfEntry">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Entry" nillable="true" type="tns:Entry" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Entry">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" default="0" name="SequenceId" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" default="0" name="CustomerId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" default="0" name="AccountId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Date" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" default="0001-01-01T00:00:00" name="DueDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" default="0" name="Amount" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" default="" name="CurrencyId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" default="0" name="CurrencyRate" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" default="1" name="CurrencyUnit" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" default="0" name="DepartmentId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" default="0" name="ProjectId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserDefinedDimensions" type="tns:ArrayOfUserDefinedDimension" />
+          <s:element minOccurs="0" maxOccurs="1" default="" name="InvoiceReferenceNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" default="" name="InvoiceOcr" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" default="" name="TaxNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" default="0" name="Period" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" default="" name="Comment" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" default="0" name="StampNo" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" default="" name="BankAccountNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" default="00000000-0000-0000-0000-000000000000" name="LinkId" type="s1:guid" />
+          <s:element minOccurs="0" maxOccurs="1" name="Links" type="tns:ArrayOfLinkModel" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfUserDefinedDimension">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="UserDefinedDimension" nillable="true" type="tns:UserDefinedDimension" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="UserDefinedDimension">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" default="0" name="Type" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" default="" name="Value" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfLinkModel">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="LinkModel" nillable="true" type="tns:LinkModel" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="LinkModel">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" default="00000000-0000-0000-0000-000000000000" name="LineId" type="s1:guid" />
+          <s:element minOccurs="0" maxOccurs="1" default="00000000-0000-0000-0000-000000000000" name="LinkId" type="s1:guid" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DifferenceOptions">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Threshold" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="AccountId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DueDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Date" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="CurrencyId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CurrencyUnit" type="s:short" />
+          <s:element minOccurs="1" maxOccurs="1" name="CurrencyRate" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="Comment" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CustomerId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Period" type="s:short" />
+          <s:element minOccurs="1" maxOccurs="1" name="LinkId" type="s1:guid" />
+          <s:element minOccurs="0" maxOccurs="1" name="InvoiceOcr" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DepartmentId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ProjectId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="BankAccountNo" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SaveBundleListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SaveBundleListResult" type="tns:SaveResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SaveResponse">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Type" type="tns:ResponsType" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="ResponsType">
+        <s:restriction base="s:string">
+          <s:enumeration value="Ok" />
+          <s:enumeration value="DublicateData" />
+          <s:enumeration value="DataAlreadySaved" />
+          <s:enumeration value="NotAuthenticated" />
+          <s:enumeration value="SystemError" />
+          <s:enumeration value="Exception" />
+          <s:enumeration value="NotSaved" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="GetEntryId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="argEntryId" type="tns:EntryId" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="EntryId">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Date" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="SortNo" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="EntryNo" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetEntryIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetEntryIdResult" type="tns:EntryId" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAccountList">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAccountListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAccountListResult" type="tns:ArrayOfAccountData" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfAccountData">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="AccountData" nillable="true" type="tns:AccountData" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="AccountData">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" default="0" name="AccountId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" default="0" name="AccountNo" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" default="" name="AccountName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" default="0" name="AccountTax" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" default="0" name="TaxNo" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetTypeList">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetTypeListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTypeListResult" type="tns:ArrayOfTypeData" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTypeData">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TypeData" nillable="true" type="tns:TypeData" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TypeData">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="TypeId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="EntrySeriesId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TypeNo" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetTaxCodeList">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetTaxCodeListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTaxCodeListResult" type="tns:ArrayOfTaxCodeElement" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTaxCodeElement">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TaxCodeElement" nillable="true" type="tns:TaxCodeElement" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TaxCodeElement">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="TaxId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="TaxNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TaxName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TaxRate" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="AccountNo" nillable="true" type="s:short" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CheckAccountNo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="accountList" type="tns:ArrayOfAccountData" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckAccountNoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CheckAccountNoResult" type="tns:ArrayOfAccountDataErrors" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfAccountDataErrors">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="AccountDataErrors" nillable="true" type="tns:AccountDataErrors" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="AccountDataErrors">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:AccountData">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="Error" type="tns:ErrorType" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:simpleType name="ErrorType">
+        <s:restriction base="s:string">
+          <s:enumeration value="Ok" />
+          <s:enumeration value="AccountDontExist" />
+          <s:enumeration value="NameDontMatch" />
+        </s:restriction>
+      </s:simpleType>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://microsoft.com/wsdl/types/">
+      <s:simpleType name="guid">
+        <s:restriction base="s:string">
+          <s:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}" />
+        </s:restriction>
+      </s:simpleType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="SaveBundleListSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveBundleList" />
+  </wsdl:message>
+  <wsdl:message name="SaveBundleListSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveBundleListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetEntryIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetEntryId" />
+  </wsdl:message>
+  <wsdl:message name="GetEntryIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetEntryIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAccountListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAccountList" />
+  </wsdl:message>
+  <wsdl:message name="GetAccountListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAccountListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTypeListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTypeList" />
+  </wsdl:message>
+  <wsdl:message name="GetTypeListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTypeListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTaxCodeListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTaxCodeList" />
+  </wsdl:message>
+  <wsdl:message name="GetTaxCodeListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTaxCodeListResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckAccountNoSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckAccountNo" />
+  </wsdl:message>
+  <wsdl:message name="CheckAccountNoSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckAccountNoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="AccountServiceSoap">
+    <wsdl:operation name="SaveBundleList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Saves a list of Account bundles to 24SO system</wsdl:documentation>
+      <wsdl:input message="tns:SaveBundleListSoapIn" />
+      <wsdl:output message="tns:SaveBundleListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEntryId">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get the next EntryId</wsdl:documentation>
+      <wsdl:input message="tns:GetEntryIdSoapIn" />
+      <wsdl:output message="tns:GetEntryIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get a list of all accounts</wsdl:documentation>
+      <wsdl:input message="tns:GetAccountListSoapIn" />
+      <wsdl:output message="tns:GetAccountListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTypeList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get a list of existing types</wsdl:documentation>
+      <wsdl:input message="tns:GetTypeListSoapIn" />
+      <wsdl:output message="tns:GetTypeListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxCodeList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets the complete tax code list</wsdl:documentation>
+      <wsdl:input message="tns:GetTaxCodeListSoapIn" />
+      <wsdl:output message="tns:GetTaxCodeListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckAccountNo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Checks if accounts exists</wsdl:documentation>
+      <wsdl:input message="tns:CheckAccountNoSoapIn" />
+      <wsdl:output message="tns:CheckAccountNoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="AccountServiceSoap" type="tns:AccountServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SaveBundleList">
+      <soap:operation soapAction="http://24sevenOffice.com/webservices/SaveBundleList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEntryId">
+      <soap:operation soapAction="http://24sevenOffice.com/webservices/GetEntryId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountList">
+      <soap:operation soapAction="http://24sevenOffice.com/webservices/GetAccountList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTypeList">
+      <soap:operation soapAction="http://24sevenOffice.com/webservices/GetTypeList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxCodeList">
+      <soap:operation soapAction="http://24sevenOffice.com/webservices/GetTaxCodeList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckAccountNo">
+      <soap:operation soapAction="http://24sevenOffice.com/webservices/CheckAccountNo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="AccountServiceSoap12" type="tns:AccountServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SaveBundleList">
+      <soap12:operation soapAction="http://24sevenOffice.com/webservices/SaveBundleList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEntryId">
+      <soap12:operation soapAction="http://24sevenOffice.com/webservices/GetEntryId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountList">
+      <soap12:operation soapAction="http://24sevenOffice.com/webservices/GetAccountList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTypeList">
+      <soap12:operation soapAction="http://24sevenOffice.com/webservices/GetTypeList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxCodeList">
+      <soap12:operation soapAction="http://24sevenOffice.com/webservices/GetTaxCodeList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckAccountNo">
+      <soap12:operation soapAction="http://24sevenOffice.com/webservices/CheckAccountNo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AccountService">
+    <wsdl:port name="AccountServiceSoap" binding="tns:AccountServiceSoap">
+      <soap:address location="https://webservices.24sevenoffice.com/economy/accountV002/Accountservice.asmx" />
+    </wsdl:port>
+    <wsdl:port name="AccountServiceSoap12" binding="tns:AccountServiceSoap12">
+      <soap12:address location="https://webservices.24sevenoffice.com/economy/accountV002/Accountservice.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,34 @@
+{
+  "name": "wsdl-tsclient-example",
+  "version": "1.0.0",
+  "private": true,
+  "description": "This is example how to generated and use soap client using wsdl-tsclient",
+  "main": "index.js",
+  "engines": {
+    "node": ">=10.0.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "generate": "wsdl-tsclient --verbose -o ./generated ./resources/*.wsdl",
+    "start": "ts-node ./src/Index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dderevjanik/wsdl-tsclient-example.git"
+  },
+  "keywords": [],
+  "author": "Daniel Derevjanik <daniel.derevjanik@gmail.com>",
+  "license": "MIT ",
+  "bugs": {
+    "url": "https://github.com/dderevjanik/wsdl-tsclient-example/issues"
+  },
+  "homepage": "https://github.com/dderevjanik/wsdl-tsclient-example#readme",
+  "devDependencies": {
+    "ts-node": "^9.1.1",
+    "typescript": "^4.2.3",
+    "wsdl-tsclient": "^1.0.0"
+  },
+  "dependencies": {
+    "soap": "^0.36.0"
+  }
+}

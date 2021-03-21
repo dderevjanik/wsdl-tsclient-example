@@ -1,0 +1,1189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://24sevenOffice.com/webservices" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://24sevenOffice.com/webservices" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://24sevenOffice.com/webservices">
+      <s:element name="DeleteRelations">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="relations" type="tns:ArrayOfRelation" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfRelation">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Relation" nillable="true" type="tns:Relation" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Relation">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" default="-2147483648" name="ContactId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" default="-2147483648" name="CompanyId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" default="" name="FirstName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" default="" name="LastName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" default="" name="Role" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" default="-2147483648" name="RoleId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PhoneNumbers" type="tns:PhoneNumbers" />
+          <s:element minOccurs="0" maxOccurs="1" name="EmailAddresses" type="tns:EmailAddresses" />
+          <s:element minOccurs="0" maxOccurs="1" default="" name="Fax" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PhoneNumbers">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Home" type="tns:PhoneNumber" />
+          <s:element minOccurs="0" maxOccurs="1" name="Fax" type="tns:PhoneNumber" />
+          <s:element minOccurs="0" maxOccurs="1" name="Mobile" type="tns:PhoneNumber" />
+          <s:element minOccurs="0" maxOccurs="1" name="Primary" type="tns:PhoneNumber" />
+          <s:element minOccurs="0" maxOccurs="1" name="Work" type="tns:PhoneNumber" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PhoneNumber">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EmailAddresses">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Home" type="tns:EmailAddress" />
+          <s:element minOccurs="0" maxOccurs="1" name="Invoice" type="tns:EmailAddress" />
+          <s:element minOccurs="0" maxOccurs="1" name="Primary" type="tns:EmailAddress" />
+          <s:element minOccurs="0" maxOccurs="1" name="Work" type="tns:EmailAddress" />
+          <s:element minOccurs="0" maxOccurs="1" name="Alternative" type="tns:EmailAddress" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EmailAddress">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="DeleteRelationsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DeleteRelationsResult" type="tns:ArrayOfRelation" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteCompanies">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="companies" type="tns:ArrayOfCompany" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCompany">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Company" nillable="true" type="tns:Company" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Company">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="APIException" type="tns:APIException" />
+          <s:element minOccurs="0" maxOccurs="1" default="-2147483648" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" default="" name="ExternalId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" default="" name="OrganizationNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" default="" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" default="" name="FirstName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" default="" name="NickName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Addresses" type="tns:Addresses" />
+          <s:element minOccurs="0" maxOccurs="1" name="PhoneNumbers" type="tns:PhoneNumbers" />
+          <s:element minOccurs="0" maxOccurs="1" name="EmailAddresses" type="tns:EmailAddresses" />
+          <s:element minOccurs="0" maxOccurs="1" default="" name="Url" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" default="" name="Country" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" default="" name="Note" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" default="" name="InvoiceLanguage" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" default="None" name="Type" type="tns:CompanyType" />
+          <s:element minOccurs="0" maxOccurs="1" default="" name="Username" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" default="" name="Password" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" default="0001-01-01T00:00:00" name="IncorporationDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" default="0001-01-01T00:00:00" name="DateCreated" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" default="-2147483648" name="Status" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" default="-2147483648" name="PriceList" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" default="-2147483648" name="Owner" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" default="" name="BankAccountNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" default="" name="BankAccountType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" default="" name="BankAccountCountry" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" default="" name="BankAccountBic" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" default="-2147483648" name="TermsOfDeliveryId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" default="0" name="AccountDebit" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" default="0" name="AccountCredit" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" default="0.0" name="Discount" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" default="-2147483648" name="TypeGroup" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" default="-79228162514264337593543950335" name="ShareCapital" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" default="-2147483648" name="NumberOfEmployees" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" default="-79228162514264337593543950335" name="Turnover" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" default="-79228162514264337593543950335" name="Profit" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" default="-2147483648" name="IndustryId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" default="-2147483648" name="MemberNo" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" default="0001-01-01T00:00:00" name="DateChanged" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" default="false" name="BlockInvoice" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Relations" type="tns:ArrayOfRelation" />
+          <s:element minOccurs="0" maxOccurs="1" name="Maps" type="tns:ArrayOfCompanyMap" />
+          <s:element minOccurs="0" maxOccurs="1" default="Unchanged" name="DistributionMethod" type="tns:DistributionMethod" />
+          <s:element minOccurs="0" maxOccurs="1" default="LOCAL" name="CurrencyId" type="tns:CurrencyType" />
+          <s:element minOccurs="0" maxOccurs="1" default="-32768" name="PaymentTime" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" default="" name="GlnNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Factoring" nillable="true" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" default="-32768" name="LedgerCustomerAccount" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" default="-32768" name="LedgerSupplierAccount" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" default="" name="VatNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Private" nillable="true" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="ExplicitlySpecifyNewCompanyId" nillable="true" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="APIException">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Type" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StackTrace" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Addresses">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Post" type="tns:Address" />
+          <s:element minOccurs="0" maxOccurs="1" name="Delivery" type="tns:Address" />
+          <s:element minOccurs="0" maxOccurs="1" name="Visit" type="tns:Address" />
+          <s:element minOccurs="0" maxOccurs="1" name="Invoice" type="tns:Address" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Address">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Street" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="State" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PostalCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PostalArea" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Country" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="CompanyType">
+        <s:restriction base="s:string">
+          <s:enumeration value="None" />
+          <s:enumeration value="Lead" />
+          <s:enumeration value="Consumer" />
+          <s:enumeration value="Business" />
+          <s:enumeration value="Supplier" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ArrayOfCompanyMap">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CompanyMap" nillable="true" type="tns:CompanyMap" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CompanyMap">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="MapType" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ExternalId" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CompanyId" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="DistributionMethod">
+        <s:restriction base="s:string">
+          <s:enumeration value="Unchanged" />
+          <s:enumeration value="Print" />
+          <s:enumeration value="EMail" />
+          <s:enumeration value="ElectronicInvoice" />
+          <s:enumeration value="Default" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="CurrencyType">
+        <s:restriction base="s:string">
+          <s:enumeration value="LOCAL" />
+          <s:enumeration value="AED" />
+          <s:enumeration value="AFN" />
+          <s:enumeration value="ALL" />
+          <s:enumeration value="AMD" />
+          <s:enumeration value="ANG" />
+          <s:enumeration value="AOA" />
+          <s:enumeration value="ARS" />
+          <s:enumeration value="AUD" />
+          <s:enumeration value="AWG" />
+          <s:enumeration value="AZN" />
+          <s:enumeration value="BAM" />
+          <s:enumeration value="BBD" />
+          <s:enumeration value="BDT" />
+          <s:enumeration value="BGN" />
+          <s:enumeration value="BHD" />
+          <s:enumeration value="BIF" />
+          <s:enumeration value="BMD" />
+          <s:enumeration value="BND" />
+          <s:enumeration value="BOB" />
+          <s:enumeration value="BOV" />
+          <s:enumeration value="BRL" />
+          <s:enumeration value="BSD" />
+          <s:enumeration value="BTN" />
+          <s:enumeration value="BWP" />
+          <s:enumeration value="BYN" />
+          <s:enumeration value="BYR" />
+          <s:enumeration value="BZD" />
+          <s:enumeration value="CAD" />
+          <s:enumeration value="CDF" />
+          <s:enumeration value="CHE" />
+          <s:enumeration value="CHF" />
+          <s:enumeration value="CHW" />
+          <s:enumeration value="CLF" />
+          <s:enumeration value="CLP" />
+          <s:enumeration value="CNY" />
+          <s:enumeration value="COP" />
+          <s:enumeration value="COU" />
+          <s:enumeration value="CRC" />
+          <s:enumeration value="CUC" />
+          <s:enumeration value="CUP" />
+          <s:enumeration value="CVE" />
+          <s:enumeration value="CZK" />
+          <s:enumeration value="DJF" />
+          <s:enumeration value="DKK" />
+          <s:enumeration value="DOP" />
+          <s:enumeration value="DZD" />
+          <s:enumeration value="EEK" />
+          <s:enumeration value="EGP" />
+          <s:enumeration value="ERN" />
+          <s:enumeration value="ETB" />
+          <s:enumeration value="EUR" />
+          <s:enumeration value="FJD" />
+          <s:enumeration value="FKP" />
+          <s:enumeration value="GBP" />
+          <s:enumeration value="GEL" />
+          <s:enumeration value="GHS" />
+          <s:enumeration value="GIP" />
+          <s:enumeration value="GMD" />
+          <s:enumeration value="GNF" />
+          <s:enumeration value="GTQ" />
+          <s:enumeration value="GYD" />
+          <s:enumeration value="HKD" />
+          <s:enumeration value="HNL" />
+          <s:enumeration value="HRK" />
+          <s:enumeration value="HTG" />
+          <s:enumeration value="HUF" />
+          <s:enumeration value="IDR" />
+          <s:enumeration value="ILS" />
+          <s:enumeration value="INR" />
+          <s:enumeration value="IQD" />
+          <s:enumeration value="IRR" />
+          <s:enumeration value="ISK" />
+          <s:enumeration value="JMD" />
+          <s:enumeration value="JOD" />
+          <s:enumeration value="JPY" />
+          <s:enumeration value="KES" />
+          <s:enumeration value="KGS" />
+          <s:enumeration value="KHR" />
+          <s:enumeration value="KMF" />
+          <s:enumeration value="KPW" />
+          <s:enumeration value="KRW" />
+          <s:enumeration value="KWD" />
+          <s:enumeration value="KYD" />
+          <s:enumeration value="KZT" />
+          <s:enumeration value="LAK" />
+          <s:enumeration value="LBP" />
+          <s:enumeration value="LKR" />
+          <s:enumeration value="LRD" />
+          <s:enumeration value="LSL" />
+          <s:enumeration value="LTL" />
+          <s:enumeration value="LVL" />
+          <s:enumeration value="LYD" />
+          <s:enumeration value="MAD" />
+          <s:enumeration value="MDL" />
+          <s:enumeration value="MGA" />
+          <s:enumeration value="MKD" />
+          <s:enumeration value="MMK" />
+          <s:enumeration value="MNT" />
+          <s:enumeration value="MOP" />
+          <s:enumeration value="MRO" />
+          <s:enumeration value="MTL" />
+          <s:enumeration value="MUR" />
+          <s:enumeration value="MVR" />
+          <s:enumeration value="MWK" />
+          <s:enumeration value="MXN" />
+          <s:enumeration value="MXV" />
+          <s:enumeration value="MYR" />
+          <s:enumeration value="MZN" />
+          <s:enumeration value="NAD" />
+          <s:enumeration value="NGN" />
+          <s:enumeration value="NIO" />
+          <s:enumeration value="NOK" />
+          <s:enumeration value="NPR" />
+          <s:enumeration value="NZD" />
+          <s:enumeration value="OMR" />
+          <s:enumeration value="PAB" />
+          <s:enumeration value="PEN" />
+          <s:enumeration value="PGK" />
+          <s:enumeration value="PHP" />
+          <s:enumeration value="PKR" />
+          <s:enumeration value="PLN" />
+          <s:enumeration value="PYG" />
+          <s:enumeration value="QAR" />
+          <s:enumeration value="RON" />
+          <s:enumeration value="RSD" />
+          <s:enumeration value="RUB" />
+          <s:enumeration value="RWF" />
+          <s:enumeration value="SAR" />
+          <s:enumeration value="SBD" />
+          <s:enumeration value="SCR" />
+          <s:enumeration value="SDG" />
+          <s:enumeration value="SEK" />
+          <s:enumeration value="SGD" />
+          <s:enumeration value="SHP" />
+          <s:enumeration value="SKK" />
+          <s:enumeration value="SLL" />
+          <s:enumeration value="SOS" />
+          <s:enumeration value="SRD" />
+          <s:enumeration value="STD" />
+          <s:enumeration value="SYP" />
+          <s:enumeration value="SZL" />
+          <s:enumeration value="THB" />
+          <s:enumeration value="TJS" />
+          <s:enumeration value="TMT" />
+          <s:enumeration value="TND" />
+          <s:enumeration value="TOP" />
+          <s:enumeration value="TRY" />
+          <s:enumeration value="TTD" />
+          <s:enumeration value="TWD" />
+          <s:enumeration value="TZS" />
+          <s:enumeration value="UAH" />
+          <s:enumeration value="UGX" />
+          <s:enumeration value="USD" />
+          <s:enumeration value="UYU" />
+          <s:enumeration value="UZS" />
+          <s:enumeration value="VEF" />
+          <s:enumeration value="VND" />
+          <s:enumeration value="VUV" />
+          <s:enumeration value="WST" />
+          <s:enumeration value="XAF" />
+          <s:enumeration value="XAG" />
+          <s:enumeration value="XAU" />
+          <s:enumeration value="XBA" />
+          <s:enumeration value="XBB" />
+          <s:enumeration value="XBC" />
+          <s:enumeration value="XBD" />
+          <s:enumeration value="XCD" />
+          <s:enumeration value="XDR" />
+          <s:enumeration value="XFU" />
+          <s:enumeration value="XOF" />
+          <s:enumeration value="XPD" />
+          <s:enumeration value="XPF" />
+          <s:enumeration value="XPT" />
+          <s:enumeration value="XTS" />
+          <s:enumeration value="XXX" />
+          <s:enumeration value="YER" />
+          <s:enumeration value="ZAR" />
+          <s:enumeration value="ZMK" />
+          <s:enumeration value="ZWL" />
+          <s:enumeration value="ZWD" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="DeleteCompaniesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DeleteCompaniesResult" type="tns:ArrayOfCompany" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveRelations">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="relations" type="tns:ArrayOfRelation" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveRelationsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SaveRelationsResult" type="tns:ArrayOfRelation" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteMaps">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="maps" type="tns:ArrayOfCompanyMap" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteMapsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DeleteMapsResult" type="tns:ArrayOfCompanyMap" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveMaps">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="maps" type="tns:ArrayOfCompanyMap" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveMapsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SaveMapsResult" type="tns:ArrayOfCompanyMap" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCompanySyncList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="syncSearchParameters" type="tns:SyncSearchParameters" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SyncSearchParameters">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" default="-2147483648" name="Page" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetCompanySyncListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCompanySyncListResult" type="tns:PageOfSyncCompany" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="PageOfSyncCompany">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CurrentPage" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalPages" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalItems" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="ItemsPerPage" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="Items" type="tns:ArrayOfSyncCompany" />
+          <s:element minOccurs="0" maxOccurs="1" name="Context" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfSyncCompany">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SyncCompany" nillable="true" type="tns:SyncCompany" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SyncCompany">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" default="-2147483648" name="CompanyId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" default="" name="ExternalId" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetCompanies">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="searchParams" type="tns:CompanySearchParameters" />
+            <s:element minOccurs="0" maxOccurs="1" name="returnProperties" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CompanySearchParameters">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ExternalId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" default="-2147483648" name="CompanyId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CompanyIds" type="tns:ArrayOfInt" />
+          <s:element minOccurs="0" maxOccurs="1" default="" name="CompanyName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" default="0001-01-01T00:00:00" name="ChangedAfter" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" default="" name="CompanyEmail" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" default="" name="CompanyPhone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" default="" name="OrganizationNumber" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfInt">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="int" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetCompaniesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCompaniesResult" type="tns:ArrayOfCompany" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCategories">
+        <s:complexType />
+      </s:element>
+      <s:complexType name="Category">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" default="-2147483648" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" default="" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" default="false" name="ShowContact" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" default="false" name="ShowCompany" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfCategory">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Category" nillable="true" type="tns:Category" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetCategoriesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCategoriesResult" type="tns:ArrayOfCategory" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveCategories">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="categories" type="tns:ArrayOfCategory" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveCategoriesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SaveCategoriesResult" type="tns:ArrayOfCategory" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCustomerCategories">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="customerId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCustomerCategoriesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCustomerCategoriesResult" type="tns:ArrayOfInt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetIndustries">
+        <s:complexType />
+      </s:element>
+      <s:complexType name="KeyValuePair">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Key" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfKeyValuePair">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="KeyValuePair" type="tns:KeyValuePair" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetIndustriesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetIndustriesResult" type="tns:ArrayOfKeyValuePair" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveCustomerCategories">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="customerCategories" type="tns:ArrayOfKeyValuePair" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfAPIException">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="APIException" nillable="true" type="tns:APIException" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SaveCustomerCategoriesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SaveCustomerCategoriesResult" type="tns:ArrayOfAPIException" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteCustomerCategories">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="customerCategories" type="tns:ArrayOfKeyValuePair" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteCustomerCategoriesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DeleteCustomerCategoriesResult" type="tns:ArrayOfAPIException" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCustomerCategoryTree">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetCustomerCategoryTreeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCustomerCategoryTreeResult" type="tns:ArrayOfKeyValuePair" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveCompanies">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="companies" type="tns:ArrayOfCompany" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveCompaniesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SaveCompaniesResult" type="tns:ArrayOfCompany" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStatuses">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetStatusesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetStatusesResult" type="tns:ArrayOfKeyValuePair" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCRMGroups">
+        <s:complexType />
+      </s:element>
+      <s:complexType name="Group">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Type" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Members" type="tns:ArrayOfGroupMember" />
+          <s:element minOccurs="0" maxOccurs="1" name="Children" type="tns:ArrayOfGroup" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfGroupMember">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="GroupMember" nillable="true" type="tns:GroupMember" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="GroupMember">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="RoleName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FirstName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastName" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfGroup">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Group" nillable="true" type="tns:Group" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetCRMGroupsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCRMGroupsResult" type="tns:ArrayOfGroup" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="DeleteRelationsSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteRelations" />
+  </wsdl:message>
+  <wsdl:message name="DeleteRelationsSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteRelationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteCompaniesSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteCompanies" />
+  </wsdl:message>
+  <wsdl:message name="DeleteCompaniesSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteCompaniesResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveRelationsSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveRelations" />
+  </wsdl:message>
+  <wsdl:message name="SaveRelationsSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveRelationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteMapsSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteMaps" />
+  </wsdl:message>
+  <wsdl:message name="DeleteMapsSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteMapsResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveMapsSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveMaps" />
+  </wsdl:message>
+  <wsdl:message name="SaveMapsSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveMapsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCompanySyncListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCompanySyncList" />
+  </wsdl:message>
+  <wsdl:message name="GetCompanySyncListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCompanySyncListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCompaniesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCompanies" />
+  </wsdl:message>
+  <wsdl:message name="GetCompaniesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCompaniesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCategoriesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCategories" />
+  </wsdl:message>
+  <wsdl:message name="GetCategoriesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCategoriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveCategoriesSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveCategories" />
+  </wsdl:message>
+  <wsdl:message name="SaveCategoriesSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveCategoriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCustomerCategoriesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCustomerCategories" />
+  </wsdl:message>
+  <wsdl:message name="GetCustomerCategoriesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCustomerCategoriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetIndustriesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetIndustries" />
+  </wsdl:message>
+  <wsdl:message name="GetIndustriesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetIndustriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveCustomerCategoriesSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveCustomerCategories" />
+  </wsdl:message>
+  <wsdl:message name="SaveCustomerCategoriesSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveCustomerCategoriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteCustomerCategoriesSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteCustomerCategories" />
+  </wsdl:message>
+  <wsdl:message name="DeleteCustomerCategoriesSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteCustomerCategoriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCustomerCategoryTreeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCustomerCategoryTree" />
+  </wsdl:message>
+  <wsdl:message name="GetCustomerCategoryTreeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCustomerCategoryTreeResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveCompaniesSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveCompanies" />
+  </wsdl:message>
+  <wsdl:message name="SaveCompaniesSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveCompaniesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetStatusesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetStatuses" />
+  </wsdl:message>
+  <wsdl:message name="GetStatusesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetStatusesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCRMGroupsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCRMGroups" />
+  </wsdl:message>
+  <wsdl:message name="GetCRMGroupsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCRMGroupsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="CompanyServiceSoap">
+    <wsdl:operation name="DeleteRelations">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Deletes an array of relations and returns the ones where an delete error occured.</wsdl:documentation>
+      <wsdl:input message="tns:DeleteRelationsSoapIn" />
+      <wsdl:output message="tns:DeleteRelationsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCompanies">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Deletes an array of companies and returns the ones where an delete error occured.</wsdl:documentation>
+      <wsdl:input message="tns:DeleteCompaniesSoapIn" />
+      <wsdl:output message="tns:DeleteCompaniesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveRelations">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Saves an array of relations and returns the ones where an error occured.</wsdl:documentation>
+      <wsdl:input message="tns:SaveRelationsSoapIn" />
+      <wsdl:output message="tns:SaveRelationsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMaps">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Deletes an array of maps and returns the ones where an error occured.</wsdl:documentation>
+      <wsdl:input message="tns:DeleteMapsSoapIn" />
+      <wsdl:output message="tns:DeleteMapsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveMaps">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Saves an array of maps and returns the ones where an error occured.</wsdl:documentation>
+      <wsdl:input message="tns:SaveMapsSoapIn" />
+      <wsdl:output message="tns:SaveMapsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCompanySyncList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets a list of CompanyIds and ExternalIds that can be used for syncing data with the GetCompanies method</wsdl:documentation>
+      <wsdl:input message="tns:GetCompanySyncListSoapIn" />
+      <wsdl:output message="tns:GetCompanySyncListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCompanies">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets a list of companies based on search parameters. You have to specify which properties you want returned.</wsdl:documentation>
+      <wsdl:input message="tns:GetCompaniesSoapIn" />
+      <wsdl:output message="tns:GetCompaniesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCategories">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns an array of CRM Categories</wsdl:documentation>
+      <wsdl:input message="tns:GetCategoriesSoapIn" />
+      <wsdl:output message="tns:GetCategoriesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveCategories">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Saves an array of CRM Categories</wsdl:documentation>
+      <wsdl:input message="tns:SaveCategoriesSoapIn" />
+      <wsdl:output message="tns:SaveCategoriesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerCategories">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns an array of category ids linked to a specified customer</wsdl:documentation>
+      <wsdl:input message="tns:GetCustomerCategoriesSoapIn" />
+      <wsdl:output message="tns:GetCustomerCategoriesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetIndustries">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a list of Industry Ids and Names</wsdl:documentation>
+      <wsdl:input message="tns:GetIndustriesSoapIn" />
+      <wsdl:output message="tns:GetIndustriesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveCustomerCategories">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Saves categories to customers (Key=CategoryId, Value=CustomerId) and returns a list of errors (if any)</wsdl:documentation>
+      <wsdl:input message="tns:SaveCustomerCategoriesSoapIn" />
+      <wsdl:output message="tns:SaveCustomerCategoriesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCustomerCategories">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Deletes categories from customers (Key=CategoryId, Value=CustomerId) and returns a list of errors (if any)</wsdl:documentation>
+      <wsdl:input message="tns:DeleteCustomerCategoriesSoapIn" />
+      <wsdl:output message="tns:DeleteCustomerCategoriesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerCategoryTree">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Key = CategoryId, Value = CustomerId</wsdl:documentation>
+      <wsdl:input message="tns:GetCustomerCategoryTreeSoapIn" />
+      <wsdl:output message="tns:GetCustomerCategoryTreeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveCompanies">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Saves all companies in the array. Please see APIException property for errors.</wsdl:documentation>
+      <wsdl:input message="tns:SaveCompaniesSoapIn" />
+      <wsdl:output message="tns:SaveCompaniesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStatuses">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get a list of all CRM Statuses.</wsdl:documentation>
+      <wsdl:input message="tns:GetStatusesSoapIn" />
+      <wsdl:output message="tns:GetStatusesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCRMGroups">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get a tree of all CRM Groups.</wsdl:documentation>
+      <wsdl:input message="tns:GetCRMGroupsSoapIn" />
+      <wsdl:output message="tns:GetCRMGroupsSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CompanyServiceSoap" type="tns:CompanyServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="DeleteRelations">
+      <soap:operation soapAction="http://24sevenOffice.com/webservices/DeleteRelations" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCompanies">
+      <soap:operation soapAction="http://24sevenOffice.com/webservices/DeleteCompanies" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveRelations">
+      <soap:operation soapAction="http://24sevenOffice.com/webservices/SaveRelations" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMaps">
+      <soap:operation soapAction="http://24sevenOffice.com/webservices/DeleteMaps" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveMaps">
+      <soap:operation soapAction="http://24sevenOffice.com/webservices/SaveMaps" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCompanySyncList">
+      <soap:operation soapAction="http://24sevenOffice.com/webservices/GetCompanySyncList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCompanies">
+      <soap:operation soapAction="http://24sevenOffice.com/webservices/GetCompanies" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCategories">
+      <soap:operation soapAction="http://24sevenOffice.com/webservices/GetCategories" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveCategories">
+      <soap:operation soapAction="http://24sevenOffice.com/webservices/SaveCategories" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerCategories">
+      <soap:operation soapAction="http://24sevenOffice.com/webservices/GetCustomerCategories" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIndustries">
+      <soap:operation soapAction="http://24sevenOffice.com/webservices/GetIndustries" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveCustomerCategories">
+      <soap:operation soapAction="http://24sevenOffice.com/webservices/SaveCustomerCategories" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCustomerCategories">
+      <soap:operation soapAction="http://24sevenOffice.com/webservices/DeleteCustomerCategories" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerCategoryTree">
+      <soap:operation soapAction="http://24sevenOffice.com/webservices/GetCustomerCategoryTree" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveCompanies">
+      <soap:operation soapAction="http://24sevenOffice.com/webservices/SaveCompanies" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatuses">
+      <soap:operation soapAction="http://24sevenOffice.com/webservices/GetStatuses" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCRMGroups">
+      <soap:operation soapAction="http://24sevenOffice.com/webservices/GetCRMGroups" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CompanyServiceSoap12" type="tns:CompanyServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="DeleteRelations">
+      <soap12:operation soapAction="http://24sevenOffice.com/webservices/DeleteRelations" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCompanies">
+      <soap12:operation soapAction="http://24sevenOffice.com/webservices/DeleteCompanies" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveRelations">
+      <soap12:operation soapAction="http://24sevenOffice.com/webservices/SaveRelations" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMaps">
+      <soap12:operation soapAction="http://24sevenOffice.com/webservices/DeleteMaps" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveMaps">
+      <soap12:operation soapAction="http://24sevenOffice.com/webservices/SaveMaps" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCompanySyncList">
+      <soap12:operation soapAction="http://24sevenOffice.com/webservices/GetCompanySyncList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCompanies">
+      <soap12:operation soapAction="http://24sevenOffice.com/webservices/GetCompanies" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCategories">
+      <soap12:operation soapAction="http://24sevenOffice.com/webservices/GetCategories" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveCategories">
+      <soap12:operation soapAction="http://24sevenOffice.com/webservices/SaveCategories" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerCategories">
+      <soap12:operation soapAction="http://24sevenOffice.com/webservices/GetCustomerCategories" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIndustries">
+      <soap12:operation soapAction="http://24sevenOffice.com/webservices/GetIndustries" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveCustomerCategories">
+      <soap12:operation soapAction="http://24sevenOffice.com/webservices/SaveCustomerCategories" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCustomerCategories">
+      <soap12:operation soapAction="http://24sevenOffice.com/webservices/DeleteCustomerCategories" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerCategoryTree">
+      <soap12:operation soapAction="http://24sevenOffice.com/webservices/GetCustomerCategoryTree" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveCompanies">
+      <soap12:operation soapAction="http://24sevenOffice.com/webservices/SaveCompanies" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatuses">
+      <soap12:operation soapAction="http://24sevenOffice.com/webservices/GetStatuses" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCRMGroups">
+      <soap12:operation soapAction="http://24sevenOffice.com/webservices/GetCRMGroups" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CompanyService">
+    <wsdl:port name="CompanyServiceSoap" binding="tns:CompanyServiceSoap">
+      <soap:address location="https://api.24sevenoffice.com/CRM/Company/V001/CompanyService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CompanyServiceSoap12" binding="tns:CompanyServiceSoap12">
+      <soap12:address location="https://api.24sevenoffice.com/CRM/Company/V001/CompanyService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
